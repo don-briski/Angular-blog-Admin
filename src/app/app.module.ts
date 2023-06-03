@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -31,7 +32,7 @@ import { CategoriesComponent } from './categories/categories.component';
     AngularFirestoreModule,
     FormsModule,
     ToastrModule.forRoot(),
-
+    BrowserAnimationsModule,
 
 
   ],

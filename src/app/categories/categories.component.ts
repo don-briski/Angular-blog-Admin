@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Category } from '../models/category';
 import { CategoriesService } from '../services/categories.service';
 
@@ -10,11 +11,20 @@ import { CategoriesService } from '../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
+  categoryArray: Array<object> = [];
+  // categoryArray$!: Observable<object[]>;
+
   constructor(private categoryService: CategoriesService ) {}
 
   ngOnInit(): void {
+    this.categoryService.loadData().subscribe(val => {
+      console.log(val)
 
-  }
+      this.categoryArray = val;
+    })
+
+    // this.categoryArray$ = this.categoryService.loadData();
+    }
 
   onSubmit(formData:any) {
     let categoryData: Category = {
