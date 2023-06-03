@@ -2,6 +2,7 @@
 @import'~bootstrap/dist/css/bootstrap.min.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '~ngx-toastr/toastr';
 
 
 
@@ -56,6 +57,9 @@ body {
 }
 
 input[type = text], input[type = email] {
-  width: 100%;
+  width: 100%!important;
+  height: 60px;
+  padding-left: 20px;
+  font-size: 13px;
 }
 
