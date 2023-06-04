@@ -11,8 +11,13 @@ import { CategoriesService } from '../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  categoryArray: Array<object> = [];
-  // categoryArray$!: Observable<object[]>;
+  categoryArray!: any[];
+  formCategory: string = '';
+  formStatus: string = 'Add';
+  categoryid: string = '';
+  categoryData: string = '';
+
+
 
   constructor(private categoryService: CategoriesService ) {}
 
@@ -23,13 +28,13 @@ export class CategoriesComponent implements OnInit {
       this.categoryArray = val;
     })
 
-    // this.categoryArray$ = this.categoryService.loadData();
     }
+
 
   onSubmit(formData:any) {
     let categoryData: Category = {
-      category: formData.value.category,
-      status: 'active'
+      category: formData.value.category
+      // status: 'active'
     }
     console.log(categoryData);
 
@@ -38,7 +43,19 @@ export class CategoriesComponent implements OnInit {
     //   status: 'active'
     // }
 
-    this.categoryService.saveData(categoryData)
+    if(this.formStatus == 'Add') {
+
+      this.categoryService.saveData(categoryData)
+      formData.resetForm()
+
+    }else if(this.formStatus == 'Update') {
+
+      this.categoryService.updateData(this.categoryid , categoryData)
+      formData.resetForm()
+
+    }
+
+
 
 
     // this.afs.collection('categories').add(categoryData).then(docRef => {
@@ -62,5 +79,18 @@ export class CategoriesComponent implements OnInit {
 
 
   }
+
+  onEdit(category: any, id: string) {
+    this.formCategory = category;
+    this.formStatus = 'Update';
+    this.categoryid = id;
+    console.log(category)
+  }
+
+  onDelete(id: string) {
+    this.categoryService.deleteData(id)
+  }
+
+
 
 }

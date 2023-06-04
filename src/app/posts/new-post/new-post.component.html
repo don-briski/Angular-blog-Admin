@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3 class="text-theme-center"> Add New Post</h3>
+      <p>You can add your new post here </p>
+    </div>
+  </div>
+
+  <form>
+
+    <div class="row ">
+      <div class="col-md-7">
+        <div class="card shadow-effect">
+          <div class="card-body">
+
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" (keyup)="onTitleChanged($event)" >
+            </div>
+
+            <div class="form-group">
+              <label>PermaLinks</label>
+              <input type="text" class="form-control" [(ngModel)] = "permalink " name="permalink" disabled />
+            </div>
+
+            <div class="form-group">
+              <label>Excerpt</label>
+              <textarea type="text" class="form-control" rows="10" cols="30" ></textarea>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="">Select a Post Category</label>
+          <select class="form-control">
+            <option value=""  >Select a category</option>
+            <option value="category" *ngFor = "let category of categories" > {{ category.data.category }} </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Post Image</label>
+          <img [src]="imgSrc"  class="form-control img-fluid img-preview" />
+          <input type="file" class="form-control" accept="image/*" (change) = "showPreview($event)" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mt-3 mb-5">
+      <div class="col-md-12">
+        <div class="card shadow-effect">
+          <div class="card-body ">
+            <div class="form-group">
+              <label>Content</label>
+              <textarea type="text" class="form-control" rows="10" cols="30" ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center mb-5">
+        <button class="btn btn-info btn-theme"> Save Post</button>
+        <button class="btn btn-warning  bg-warning btn-theme ml-5" routerLink="/posts"> Back to Post</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
