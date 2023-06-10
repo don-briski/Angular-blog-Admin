@@ -56,7 +56,7 @@ body {
   border: none;
 }
 
-input[type = text], input[type = email] {
+input[type = text], input[type = email], input[type = password] {
   width: 100%!important;
   height: 60px;
   padding-left: 20px;

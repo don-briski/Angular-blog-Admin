@@ -2,5 +2,10 @@
   <div class="container justify-content-center">
     <a href="#" class="site-logo">ANG-BLOG</a>
   </div>
+
+  <div class="container justify-content-center" *ngIf = 'isLoggedIn$ | async'>
+    <a class="mr-3" href="#"> {{ userEmail }}</a>
+    <button class="btn btn-sm  btn-info bg-secondary-theme text-theme-primary " (click)="onLogOut()">Logout</button>
+  </div>
 </header>
 

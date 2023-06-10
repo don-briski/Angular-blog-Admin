@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
-import { ICategory } from '../models/category';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class CategoriesService {
       this.toastr.success('Data inserted sucessfully...!')
 
     }).catch( err => {
-      console.log(err)
+      console.log( err)
+      this.toastr.error('Something went wrong in saving data...!')
     })
   }
 
