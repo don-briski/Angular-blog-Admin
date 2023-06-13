@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "ang-blog-6c867",
+    "ang-blog-dashboard-90": "ang-blog-6c867"
+  },
+  "targets": {
+    "ang-blog-6c867": {
+      "hosting": {}
+    }
+  },
+  "etags": {}
+}
